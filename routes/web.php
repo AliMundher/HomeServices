@@ -3,6 +3,7 @@
 use App\Http\Livewire\Admin\AdminDashboardComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\HomeComponent;
+use App\Http\Livewire\ServiceCategoriesComponent;
 use App\Http\Livewire\Sprovider\SproviderDashboardComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +14,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', HomeComponent::class)->name('home');
+Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service_categories');
 
 // Route of Customer
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
