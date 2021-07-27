@@ -20,6 +20,13 @@
                 <div class="container">
                     <div class="row portfolioContainer">
                         <div class="col-md-12 profile1">
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col pull-right">
+                                    <a href="{{route('admin.add_service_category')}}"
+                                    class="btn btn-success" style="margin-bottom:10px">Add New Category</a>
+                                </div>
+                            </div>
                             <table class="table table-striped table-bordered text-center">
                                 <thead>
                                     <tr>
@@ -31,6 +38,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @if(session()->has('message'))
+                                        <div class="alert alert-success">{{session('message')}}</div>
+                                    @endif
                                     @foreach ($scategories as $scategory)
                                         <tr>
                                             <td>{{$scategory->id}}</td>
@@ -41,11 +51,12 @@
                                             <td>{{$scategory->name}}</td>
                                             <td>{{$scategory->slug}}</td>
                                             <td>
-                                                <a href="{{route('admin.add_service_category')}}"
-                                                    class="btn btn-success">Add</a>
                                                 <a href="{{route('admin.edit_service_category',['category_id'=>$scategory->id])}}"
                                                     class="btn btn-primary" style="margin-right:0">Edit</a>
-                                                <a href="{{route('admin.add_service_category')}}"
+
+                                                <a href="#" onclick="confirm('Are you sure to Delete this category?') ||
+                                                    event.stopImmediatePropagation()"
+                                                    wire:click.prevent="removeCategory({{$scategory->id}})"
                                                     class="btn btn-danger">Remove</a>
                                             </td>
                                         </tr>
