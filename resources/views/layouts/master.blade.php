@@ -8,12 +8,15 @@
     <meta name="author" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="{{asset('assets/img/favicon.png')}}">
+    {{-- <link href="{{asset('assets/css/bootstrap/bootstrap1.min.css')}}" rel="stylesheet" media="screen"> --}}
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet" media="screen">
     <link href="{{asset('assets/css/chblue.css')}}" rel="stylesheet" media="screen">
     <link href="{{asset('assets/css/theme-responsive.css')}}" rel="stylesheet" media="screen">
     <link href="{{asset('assets/css/dtb/jquery.dataTables.min.css')}}" rel="stylesheet" media="screen">
     <link href="{{asset('assets/css/select2.min.css')}}" rel="stylesheet" media="screen">
     <link href="{{asset('assets/css/toastr.min.css')}}" rel="stylesheet" media="screen">
+
+    <link rel="stylesheet" href="{{asset('assets/css/myStyle.css')}}">
     <script type="text/javascript" src="{{asset('assets/js/jquery.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/jquery-ui.1.10.4.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/toastr.min.js')}}"></script>
@@ -135,6 +138,7 @@
                                 <a href="#" title="Register">My Account(Admin)</a>
                                 <ul class="drop-down one-column hover-fade">
                                     <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
+                                    <li><a href="{{route('admin.service_categories')}}">Services Categories</a></li>
                                     <li><a href="{{route('logout')}}" onClick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
                                 </ul>
                             </li>
