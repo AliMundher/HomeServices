@@ -3,12 +3,12 @@
         <div class="bg_parallax image_02_parallax"></div>
         <div class="opacy_bg_02">
             <div class="container">
-                <h1>Service Category</h1>
+                <h1>{{$category_name}} Services</h1>
                 <div class="crumbs">
                     <ul>
                         <li><a href="/">Home</a></li>
                         <li>/</li>
-                        <li>Service Category</li>
+                        <li>{{$category_name}} Services</li>
                     </ul>
                 </div>
             </div>
@@ -21,10 +21,12 @@
                     <div class="row portfolioContainer">
                         <div class="col-md-12 profile1">
                             <div class="row">
-                                <div class="col"></div>
-                                <div class="col pull-right">
-                                    <a href="{{route('admin.add_service_category')}}"
-                                    class="btn btn-success" style="margin-bottom:10px">Add New Category</a>
+                                <div class="col-md-6">
+                                    <h4>{{$category_name}}</h4>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <a href="#"
+                                    class="btn btn-success" style="margin-bottom:10px">Add New Service</a>
                                 </div>
                             </div>
                             <table class="table table-striped table-bordered text-center">
@@ -33,7 +35,10 @@
                                         <th class="text-center">#</th>
                                         <th class="text-center">Image</th>
                                         <th class="text-center">Name</th>
-                                        <th class="text-center">Slug</th>
+                                        <th class="text-center">Price</th>
+                                        <th class="text-center">Status</th>
+                                        <th class="text-center">Category</th>
+                                        <th class="text-center">Created At</th>
                                         <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
@@ -41,37 +46,34 @@
                                     @if(session()->has('message'))
                                         <div class="alert alert-success">{{session('message')}}</div>
                                     @endif
-                                    @foreach ($scategories as $scategory)
+                                    @foreach ($services as $service)
                                         <tr>
-                                            <td>{{$scategory->id}}</td>
+                                            <td>{{$service->id}}</td>
                                             <td>
-                                                <img src="{{asset('images/categories')}}/{{$scategory->image}}"
-                                                    alt="{{$scategory->name}}">
+                                                <img src="{{asset('images/services/thumbnails')}}/{{$service->thumbnail}}"
+                                                    alt="{{$service->name}}" height="60" width="100%">
                                             </td>
-                                            <td>{{$scategory->name}}</td>
-                                            <td>{{$scategory->slug}}</td>
+                                            <td>{{$service->name}}</td>
+                                            <td>{{$service->price}}</td>
                                             <td>
-                                                <a href="{{route('admin.services_by_category',
-                                                    ['category_slug'=>$scategory->slug])}}"
-                                                    class="btn btn-primary" style="margin-right:0">
-                                                    <i class="fa fa-list"></i>
-                                                </a>
-
-                                                <a href="{{route('admin.edit_service_category',
-                                                    ['category_id'=>$scategory->id])}}"
-                                                    class="btn btn-primary" style="margin-right:0">Edit</a>
-
-                                                <a href="#" onclick="confirm('Are you sure to Delete this category?') ||
-                                                    event.stopImmediatePropagation()"
-                                                    wire:click.prevent="removeCategory({{$scategory->id}})"
-                                                    class="btn btn-danger">Remove</a>
+                                                @if ($service->status)
+                                                    activ
+                                                @else
+                                                    inactive
+                                                @endif
+                                            </td>
+                                            <td>{{$service->category->name}}</td>
+                                            <td>{{$service->created_at}}</td>
+                                            <td>
+                                                <a href="#" class="btn btn-primary" style="margin-right:0">Edit</a>
+                                                <a href="#" class="btn btn-danger">Remove</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                             <div class="moon">
-                                {{ $scategories->links() }}
+                                {{ $services->links() }}
                             </div>
                         </div>
                     </div>

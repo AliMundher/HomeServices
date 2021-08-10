@@ -32,10 +32,12 @@
                             <li>
                                 <div class="item-service-line">
                                     <i class="fa">
-                                        <a href="servicesbycategory/1.html">
+                                        <a href="{{route('home.services_by_category',
+                                        ['category_slug'=>$category->slug])}}">
                                             <img class="icon-img" src="{{asset('images/categories')}}/{{$category->image}}"
                                                 alt="{{$category->name}}">
-                                        </a></i>
+                                        </a>
+                                    </i>
                                     <h5>{{$category->name}}</h5>
                                 </div>
                             </li>
