@@ -38,6 +38,7 @@
                                         <th class="text-center">Price</th>
                                         <th class="text-center">Status</th>
                                         <th class="text-center">Category</th>
+                                        <th class="text-center">Featured</th>
                                         <th class="text-center">Created At</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -63,10 +64,21 @@
                                                 @endif
                                             </td>
                                             <td>{{$service->category->name}}</td>
+                                            <td>
+                                                @if ($service->featured)
+                                                    Yes
+                                                @else
+                                                    No
+                                                @endif
+                                            </td>
                                             <td>{{$service->created_at}}</td>
                                             <td>
-                                                <a href="#" class="btn btn-primary" style="margin-right:0">Edit</a>
-                                                <a href="#" class="btn btn-danger">Remove</a>
+                                                <a href="{{route('admin.edit_service',
+                                                    ["service_slug"=>$service->slug])}}" class="btn btn-primary" style="margin-right:0">Edit</a>
+                                                <a href="#" wire:click.prevent="deleteService({{$service->id}})"
+                                                    onclick="confirm('Are you sure you want to delete this service?')||
+                                                    event.stopImmediatePropagation()"
+                                                    class="btn btn-danger">Remove</a>
                                             </td>
                                         </tr>
                                     @endforeach

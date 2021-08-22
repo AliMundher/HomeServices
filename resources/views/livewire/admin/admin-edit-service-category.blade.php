@@ -52,6 +52,16 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
+                                                    <label for="featured" class="control-label col-sm-3">Featured</label>
+                                                    <div class="form-group col-md-9">
+                                                        <select class="form-control" id="featured"
+                                                            wire:model="featured"  name="featured">
+                                                            <option value="0">No</option>
+                                                            <option value="1">Yes</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
                                                     <label for="slug" class="control-label col-sm-3">Category Slug</label>
                                                     <div class="form-group col-md-9">
                                                         <input type="text" class="form-control" id="slug"

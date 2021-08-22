@@ -4,12 +4,12 @@
             <div class="bg_parallax image_02_parallax"></div>
             <div class="opacy_bg_02">
                 <div class="container">
-                    <h1>Add New Service</h1>
+                    <h1>Update Service</h1>
                     <div class="crumbs">
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li>/</li>
-                            <li>Add New Service</li>
+                            <li>Update Service</li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                                     <div class="card-header">
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <h4>Add New Service</h4>
+                                                <h4>Update Service</h4>
                                             </div>
                                             <div class="col-md-6">
                                                 <h4>
@@ -39,7 +39,7 @@
                                         @if (session()->has('message'))
                                             <div class="alert alert-success">{{session('message')}}</div>
                                         @endif
-                                        <form method="post" wire:submit.prevent="createService()">
+                                        <form method="post" wire:submit.prevent="updateService()">
                                             @csrf
                                             <div class="form-horizontal">
                                                 <div class="form-group ">
@@ -111,7 +111,6 @@
                                                     <div class="form-group col-md-9">
                                                         <select class="form-control" id="featured"
                                                             wire:model="featured"  name="featured">
-                                                            <option value="">Select Featured</option>
                                                             <option value="0">No</option>
                                                             <option value="1">Yes</option>
                                                         </select>
@@ -143,31 +142,35 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="thumbnail" class="control-label col-sm-3">Thumbnail</label>
+                                                    <label for="newThumbnail" class="control-label col-sm-3">Thumbnail</label>
                                                     <div class="form-group col-md-9">
-                                                        <input type="file" class="form-control-file" id="thumbnail"
-                                                            name="thumbnail" wire:model="thumbnail">
+                                                        <input type="file" class="form-control-file" id="newThumbnail"
+                                                            name="newThumbnail" wire:model="newThumbnail">
                                                             @error('thumbnail') <p class="text-danger">{{$message}}</p> @enderror
-                                                            @if ($thumbnail)
-                                                                <img src="{{$thumbnail->temporaryUrl()}}" width="60" alt="">
+                                                            @if ($newThumbnail)
+                                                                <img src="{{$newThumbnail->temporaryUrl()}}" width="60" alt="">
+                                                            @else
+                                                                <img src="{{asset('images/services/thumbnails')}}/{{$thumbnail}}" width="60" alt="">
                                                             @endif
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="image" class="control-label col-sm-3">Image</label>
+                                                    <label for="newImage" class="control-label col-sm-3">Image</label>
                                                     <div class="form-group col-md-9">
-                                                        <input type="file" class="form-control-file" id="image"
-                                                            name="image" wire:model="image">
-                                                            @error('image') <p class="text-danger">{{$message}}</p> @enderror
-                                                            @if ($image)
-                                                                <img src="{{$image->temporaryUrl()}}" width="60" alt="">
+                                                        <input type="file" class="form-control-file" id="newImage"
+                                                            name="newImage" wire:model="newImage">
+                                                            @error('newImage') <p class="text-danger">{{$message}}</p> @enderror
+                                                            @if ($newImage)
+                                                                <img src="{{$newImage->temporaryUrl()}}" width="60" alt="">
+                                                            @else
+                                                            <img src="{{asset('images/services')}}/{{$image}}" width="60" alt="">
                                                             @endif
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col col-lg-offset-3">
-                                                    <button class="btn btn-success">Create Service</button>
+                                                    <button class="btn btn-success">Update</button>
                                                 </div>
                                             </div>
                                         </form>

@@ -33,6 +33,7 @@
                                         <th class="text-center">#</th>
                                         <th class="text-center">Image</th>
                                         <th class="text-center">Name</th>
+                                        <th class="text-center">Featured</th>
                                         <th class="text-center">Slug</th>
                                         <th class="text-center">Action</th>
                                     </tr>
@@ -49,6 +50,13 @@
                                                     alt="{{$scategory->name}}">
                                             </td>
                                             <td>{{$scategory->name}}</td>
+                                            <td>
+                                                @if ($scategory->featured)
+                                                    Yes
+                                                @else
+                                                    No
+                                                @endif
+                                            </td>
                                             <td>{{$scategory->slug}}</td>
                                             <td>
                                                 <a href="{{route('admin.services_by_category',
