@@ -140,7 +140,9 @@
                                     <li><a href="{{route('admin.dashboard')}}">Dashboard</a></li>
                                     <li><a href="{{route('admin.service_categories')}}">Services Categories</a></li>
                                     <li><a href="{{route('admin.all_services')}}">All Services</a></li>
+                                    <li><a href="{{route('admin.slider')}}">Manage Sliders</a></li>
                                     <li><a href="{{route('logout')}}" onClick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a></li>
+
                                 </ul>
                             </li>
                             @elseif(Auth::user()->utype==="SVP")
