@@ -62,7 +62,8 @@
                                             <td>{{$slide->created_at}}</td>
                                             <td>
                                                 <a href="{{route('admin.edit_slider',
-                                                    ["service_id"=>$slide->id])}}" class="btn btn-primary" style="margin-right:0">Edit</a>
+                                                    ["slide_id"=>$slide->id])}}" class="btn btn-primary"
+                                                        style="margin-right:0">Edit</a>
                                                 <a href="#" wire:click.prevent="deleteSlider({{$slide->id}})"
                                                     onclick="confirm('Are you sure you want to delete this slider?')||
                                                     event.stopImmediatePropagation()"
