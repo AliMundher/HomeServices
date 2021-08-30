@@ -62,7 +62,7 @@
                 <ul class="collapse">
                     <li class="title">
                         <a href="/">
-                            <img src="{{asset('images/logo.png')}}">
+                            Moon Service
                         </a>
                     </li>
                     <li>

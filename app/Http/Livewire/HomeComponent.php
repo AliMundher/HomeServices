@@ -6,6 +6,7 @@ use App\Models\Service;
 use Livewire\Component;
 use App\Models\ServiceCategory;
 use App\Models\Services;
+use App\Models\Slider;
 
 class HomeComponent extends Component
 {
@@ -17,12 +18,13 @@ class HomeComponent extends Component
         $sid = ServiceCategory::whereIn('slug',['ac','tv','refrigerator','geyser',
             'water-purifier'])->get()->pluck('id');
         $aservices = Service::whereIn('service_category_id',$sid)->inRandomOrder()->take(8)->get();
-
+        $slides = Slider::where('status',1)->get();
         return view('livewire.home-component',[
             'categories' => $categories,
             'scategories' => $scategories,
             'services' => $services,
             'aservices' => $aservices,
+            'slides' => $slides,
 
         ])->layout('layouts.master');
     }
