@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SearchController;
 use App\Http\Livewire\Admin\AdminServiceComponent;
 use App\Http\Livewire\Admin\AdmiAddServiceComponent;
 use App\Http\Livewire\Admin\AdminEditServiceCategory;
@@ -11,6 +12,7 @@ use App\Http\Livewire\Admin\AdminEditSliderComponent;
 use App\Http\Livewire\Admin\AdminServiceCategoryComponent;
 use App\Http\Livewire\Admin\AdminServicesByCategoryComponent;
 use App\Http\Livewire\Admin\AdminSliderComponent;
+use App\Http\Livewire\ChangeLocationComponent;
 use App\Http\Livewire\Customer\CustomerDashboardComponent;
 use App\Http\Livewire\ServiceByCategoryComponent;
 use App\Http\Livewire\HomeComponent;
@@ -29,6 +31,13 @@ Route::get('/home', HomeComponent::class)->name('home');
 Route::get('/service-categories',ServiceCategoriesComponent::class)->name('home.service_categories');
 Route::get('/{category_slug}/services',ServiceByCategoryComponent::class)->name('home.services_by_category');
 Route::get('service/{service_slug}',ServiceDetailsComponent::class)->name('home.service_details');
+
+// Rout of Search Input Field
+Route::get('/autocomplete',[SearchController::class,'autoComplete'])->name('autocomplete');
+Route::post('/search',[SearchController::class,'searchService'])->name('searchService');
+
+// Chang Location
+Route::get('/change-location',[ChangeLocationComponent::class])->name('home.change_location');
 
 
 // Route of Customer

@@ -32,24 +32,28 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="visible-md visible-lg text-left">
-                            <li><a href="tel:+911234567890"><i class="fa fa-phone"></i> +91-1234567890</a></li>
-                            <li><a href="mailto:contact@surfsidemedia.in"><i class="fa fa-envelope"></i>
-                                    contact@surfsidemedia.in</a></li>
+                            <li><a href="tel:+911234567890">
+                                <i class="fa fa-phone"></i> +91-1234567890</a>
+                            </li>
+                            <li><a href="mailto:contact@surfsidemedia.in">
+                                <i class="fa fa-envelope"></i>
+                                    contact@surfsidemedia.in</a>
+                                </li>
                         </ul>
                         <ul class="visible-xs visible-sm">
-                            <li class="text-left"><a href="tel:+911234567890"><i class="fa fa-phone"></i>
-                                    +91-1234567890</a></li>
-                            <li class="text-right"><a href="index.php/changelocation.html"><i
-                                        class="fa fa-map-marker"></i> Faridabad, Haryana</a></li>
+                            <li class="text-left">
+                                <a href="tel:+911234567890">
+                                <i class="fa fa-phone"></i>
+                                    +91-1234567890</a>
+                            </li>
+                            <li class="text-right">
+                                <a href="">
+                                <i class="fa fa-map-marker">
+                                    </i> Faridabad, Haryana</a>
+                            </li>
                         </ul>
                     </div>
-                    <div class="col-md-6">
-                        <ul class="visible-md visible-lg text-right">
-                            <li><i class="fa fa-comment"></i> Live Chat</li>
-                            <li><a href="index.php/changelocation.html"><i class="fa fa-map-marker"></i> Faridabad,
-                                    Haryana</a></li>
-                        </ul>
-                    </div>
+                    @livewire('location-component');
                 </div>
             </div>
         </div>
@@ -323,7 +327,7 @@
             });
         });
     </script>
-
+    @stack('scripts')
     @livewireScripts
 </body>
 </html>

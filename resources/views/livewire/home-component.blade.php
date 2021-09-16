@@ -22,8 +22,10 @@
             </div>
             {{-- Search Form --}}
             <div class="filter-header">
-                <form id="sform" action="searchservices" method="post">
-                    <input type="text" id="q" name="q" required="required" placeholder="What Services do you want?"
+                <form id="sform" action="{{route('searchService')}}" method="post">
+                    @csrf
+                    <input type="text" id="q" name="q" required="required"
+                        placeholder="What Services do you want?"
                         class="input-large typeahead" autocomplete="off">
                     <input type="submit" name="submit" value="Search">
                 </form>
@@ -167,3 +169,18 @@
         </div>
     </section>
 </div>
+
+
+@push('scripts');
+   <script>
+        var path = "{{route('autocomplete')}}";
+
+        $('input.typeahead').typeahead({
+            source: function(query,process){
+                return $.get(path,{query},function(data){
+                    return process(data)
+                });
+            }
+        });
+   </script>
+@endpush('scripts');
